@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div id="viewPort">
+<div id="viewport">
   <div ng-repeat="image in mCtrl.image track by $index" class="random {{mCtrl.sectionOneStatus}}">
     <img ng-src="{{image}}">
     <div>
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div ng-repeat="image in mCtrl.results track by $index" class="random {{mCtrl.sectionOneStatus}}">
+  <div ng-repeat="image in mCtrl.results track by $index" class="search {{mCtrl.sectionOneStatus}}">
     <img ng-src="{{image}}">
     <div>
       <form>
@@ -31,13 +31,4 @@
       </form>
     </div>
   </div>
-
-
-        {{mCtrl.favoriteResult.url}}
-
-
-        <div class= "search" id="{{mCtrl.sectionTwoStatus}}">
-          <img ng-repeat="result in mCtrl.results track by $index" ng-src="{{result}}">
-        </div>
-
 </div>
