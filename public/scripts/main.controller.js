@@ -1,9 +1,9 @@
 angular.module('giphyApp')
        .controller('MainController', MainController);
 
-function MainController(gif) {
+function MainController(fav, gif) {
   var mCtrl = this;
-
+  mCtrl.favoriteResult = {};
   mCtrl.results = [];
   mCtrl.image = '';
 
@@ -17,6 +17,29 @@ function MainController(gif) {
       mCtrl.image = url;
     });
   };
+
+  fav.getFav().then(function (response) {
+        console.log('response from GET', response);
+    mCtrl.favoriteResult = response;
+  });
+
+mCtrl.postFav = function (data) {
+  fav.postFav(data).then(function (response) {
+    console.log('response from POST', response);
+});
+}
+
+  //
+  // mCtrl.postFav = function (url, comment) {
+  //   data = {url: mCtrl.image, comment: mCtrl.comment};
+  //   console.log(data);
+  //   $http.post('/favorites', {url: mCtrl.image, comment: mCtrl.comment}).then(function (response) {
+  //       console.log(response);
+  //     }, function (error) {
+  //
+  //     console.log('Error making http request:', error);
+  //   });
+
 
   mCtrl.getSearchImage = function (search) {
     var searchString = '';

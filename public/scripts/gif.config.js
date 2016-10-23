@@ -3,7 +3,7 @@ angular.module('giphyApp')
         $routeProvider.when('/gifs', {
           templateUrl: 'views/gifs.html',
           controller: 'MainController as mCtrl',
-        }).when('/favorites', {
+        }).when('/favorite', {
           templateUrl: 'views/favorites.html',
           controller: 'MainController as mCtrl',
         });

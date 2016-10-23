@@ -8,8 +8,17 @@
     </div>
 
     <div class="random" id="{{mCtrl.sectionOneStatus}}">
+
       <img ng-src="{{mCtrl.image}}"/>
+<div>
+    <form>
+        <input type="text" ng-model="mCtrl.comment" placeholder="why do you like this gif" />
+        <button ng-click="mCtrl.postFav({url: 'www.google.com', comment: 'i like it 2'})"></button>
+    </form>
+</div>
     </div>
+    {{mCtrl.favoriteResult.url}}
+
 
     <div class= "search" id="{{mCtrl.sectionTwoStatus}}">
       <img ng-repeat="result in mCtrl.results track by $index" ng-src="{{result}}">
