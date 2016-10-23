@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="giphyApp">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Gif Generator</title>
+
+    <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
+
+    <script src="scripts/gif.module.js"></script>
+    <script src="scripts/gif.config.js"></script>
+    <script src="scripts/gif.service.js"></script>
+    <script src="scripts/main.controller.js"></script>
+
+    <link href="styles/styles.css" rel="stylesheet">
+
+    <base href="/">
+  </head>
+
+  <body>
+
+<a href="/gifs">Gifs</a>
+<a href="/favorites">Favorites</a>
+
+
+
+      <div ng-view>
+        <!-- different views here -->
+      </div>
+
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<div class="navigation">
+      <button id="generateRandom" ng-click="mCtrl.getRandomImage()">Feeling Lucky?</button>
+
+      <form>
+        <input type="text" ng-model="mCtrl.search" placeholder="search for a gif here">
+        <button ng-click="mCtrl.getSearchImage(mCtrl.search)">Search</button>
+      </form>
+    </div>
+
+    <div class="random" id="{{mCtrl.sectionOneStatus}}">
+      <img ng-src="{{mCtrl.image}}"/>
+    </div>
+
+    <div class= "search" id="{{mCtrl.sectionTwoStatus}}">
+      <img ng-repeat="result in mCtrl.results track by $index" ng-src="{{result}}">
+    </div>
