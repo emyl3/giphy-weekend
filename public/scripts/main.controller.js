@@ -5,40 +5,31 @@ function MainController(fav, gif) {
   var mCtrl = this;
   mCtrl.favoriteResult = {};
   mCtrl.results = [];
-  mCtrl.image = '';
+  mCtrl.comment = '';
+  mCtrl.image = [];
 
   //gets a random image
   mCtrl.getRandomImage = function () {
-    mCtrl.image = '';
     mCtrl.sectionOneStatus = 'show';
     mCtrl.sectionTwoStatus = 'hide';
 
     gif.randomImageRequest().then(function (url) {
-      mCtrl.image = url;
+      mCtrl.image.push(angular.copy(url));
     });
   };
 
   fav.getFav().then(function (response) {
-        console.log('response from GET', response);
+    console.log('response from GET', response);
     mCtrl.favoriteResult = response;
   });
 
-mCtrl.postFav = function (data) {
-  fav.postFav(data).then(function (response) {
-    console.log('response from POST', response);
+mCtrl.postFav = function (entry) {
+  console.log('entry', entry);
+  fav.postFav(entry).then(function (response) {
+  console.log('response from POST', response);
+  mCtrl.comment = '';
 });
 }
-
-  //
-  // mCtrl.postFav = function (url, comment) {
-  //   data = {url: mCtrl.image, comment: mCtrl.comment};
-  //   console.log(data);
-  //   $http.post('/favorites', {url: mCtrl.image, comment: mCtrl.comment}).then(function (response) {
-  //       console.log(response);
-  //     }, function (error) {
-  //
-  //     console.log('Error making http request:', error);
-  //   });
 
 
   mCtrl.getSearchImage = function (search) {
@@ -46,7 +37,6 @@ mCtrl.postFav = function (data) {
 
     //clears previous results
     mCtrl.results = [];
-    mCtrl.image = '';
 
     //sets search value and clears form data
 
@@ -62,7 +52,7 @@ mCtrl.postFav = function (data) {
       }
 
       gif.searchQuery(searchString).then(function (results) {
-        mCtrl.results = results;
+        mCtrl.results = angular.copy(results);
         search = '';
       });
 

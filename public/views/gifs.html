@@ -1,25 +1,43 @@
-<div class="navigation">
-      <button id="generateRandom" ng-click="mCtrl.getRandomImage()">Feeling Lucky?</button>
+<div id="navBar">
+    <div id="navigation">
+      <button id="generateRandom" ng-click="mCtrl.getRandomImage()">Get Random Gif</button>
+    </div>
 
+    <div id="search">
       <form>
         <input type="text" ng-model="mCtrl.search" placeholder="search for a gif here">
         <button ng-click="mCtrl.getSearchImage(mCtrl.search)">Search</button>
       </form>
     </div>
-
-    <div class="random" id="{{mCtrl.sectionOneStatus}}">
-
-      <img ng-src="{{mCtrl.image}}"/>
-<div>
-    <form>
-        <input type="text" ng-model="mCtrl.comment" placeholder="why do you like this gif" />
-        <button ng-click="mCtrl.postFav({url: 'www.google.com', comment: 'i like it 2'})"></button>
-    </form>
 </div>
+
+<div id="viewPort">
+  <div ng-repeat="image in mCtrl.image track by $index" class="random {{mCtrl.sectionOneStatus}}">
+    <img ng-src="{{image}}">
+    <div>
+      <form>
+        <input type="text" ng-model="mCtrl.comment" placeholder="why do you like this gif" />
+        <button ng-value="image" ng-click="mCtrl.postFav({url: image, comment: mCtrl.comment})"></button>
+      </form>
     </div>
-    {{mCtrl.favoriteResult.url}}
+  </div>
+
+  <div ng-repeat="image in mCtrl.results track by $index" class="random {{mCtrl.sectionOneStatus}}">
+    <img ng-src="{{image}}">
+    <div>
+      <form>
+        <input type="text" ng-model="mCtrl.comment" placeholder="why do you like this gif">
+        <button ng-value="image" ng-click="mCtrl.postFav({url: image, comment: mCtrl.comment})"></button>
+      </form>
+    </div>
+  </div>
 
 
-    <div class= "search" id="{{mCtrl.sectionTwoStatus}}">
-      <img ng-repeat="result in mCtrl.results track by $index" ng-src="{{result}}">
-    </div>
+        {{mCtrl.favoriteResult.url}}
+
+
+        <div class= "search" id="{{mCtrl.sectionTwoStatus}}">
+          <img ng-repeat="result in mCtrl.results track by $index" ng-src="{{result}}">
+        </div>
+
+</div>

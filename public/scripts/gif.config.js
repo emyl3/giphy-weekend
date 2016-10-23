@@ -1,6 +1,9 @@
 angular.module('giphyApp')
        .config(function ($routeProvider, $locationProvider) {
-        $routeProvider.when('/gifs', {
+        $routeProvider.when('/', {
+          templateUrl: 'views/gifs.html',
+          controller: 'MainController as mCtrl',
+        }).when('/gifs', {
           templateUrl: 'views/gifs.html',
           controller: 'MainController as mCtrl',
         }).when('/favorite', {
