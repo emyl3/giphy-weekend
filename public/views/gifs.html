@@ -12,7 +12,7 @@
 </div>
 
 <div id="viewport">
-  <div ng-repeat="image in mCtrl.image track by $index" ng-class="random {{mCtrl.statusOne}}">
+  <div ng-repeat="image in mCtrl.image track by $index" class="random">
     <div class="imageButton">
       <img class="random" ng-src="{{image}}">
       <button class="random {{mCtrl.statusOne}}" ng-click="mCtrl.showForm()">Add to Favorite</button>
@@ -29,11 +29,11 @@
 
   </div>
 
-  <div ng-repeat="image in mCtrl.results track by $index" ng-class="search {{mCtrl.statusThree}}">
-    <div class="imageButton">
+  <div class="random">
+    <div ng-repeat="image in mCtrl.results track by $index" class="imageButton">
       <img class="random" ng-src="{{image}}">
-      <button class="random {{mCtrl.statusThree}}" ng-click="mCtrl.showForm()">Add to Favorite</button>
-      <div class="{{mCtrl.statusFour}} form">
+      <button class="random {{mCtrl.statusOne}}" ng-click="mCtrl.showForm()">Add to Favorite</button>
+      <div class="{{mCtrl.statusTwo}} form">
         <form>
           <input type="text" ng-model="mCtrl.comment" placeholder="why do you like this gif">
           <div class="choice">
