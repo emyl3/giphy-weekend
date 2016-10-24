@@ -6,7 +6,7 @@ angular.module('giphyApp')
         }).when('/gifs', {
           templateUrl: 'views/gifs.html',
           controller: 'MainController as mCtrl',
-        }).when('/favorite', {
+        }).when('/favorites', {
           templateUrl: 'views/favorites.html',
           controller: 'MainController as mCtrl',
         });

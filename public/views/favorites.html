@@ -1,1 +1,8 @@
 <h1>test</h1>
+<div ng-repeat="image in mCtrl.favoriteResult track by $index" class="favorites {{mCtrl.status.three}}">
+  <img ng-src="{{image.url}}">
+  <p>{{image.comment}}</p>
+  <div>
+
+  </div>
+</div>

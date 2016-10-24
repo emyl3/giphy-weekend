@@ -1,5 +1,6 @@
 <div id="navBar">
     <div id="navigation">
+      <p>Why not get more random Gifs?</p>
       <button id="generateRandom" ng-click="mCtrl.getRandomImage()">Get Random Gif</button>
     </div>
 
@@ -12,17 +13,20 @@
 </div>
 
 <div id="viewport">
-  <div ng-repeat="image in mCtrl.image track by $index" class="random {{mCtrl.sectionOneStatus}}">
+  <div ng-repeat="image in mCtrl.image track by $index" ng-class="random {{mCtrl.status.one}}">
+    <button ng-click="mCtrl.showForm()">Add to Favorite</button>
     <img ng-src="{{image}}">
-    <div>
+    <div ng-class="form {{mCtrl.status.two}}">
       <form>
         <input type="text" ng-model="mCtrl.comment" placeholder="why do you like this gif" />
-        <button ng-value="image" ng-click="mCtrl.postFav({url: image, comment: mCtrl.comment})"></button>
+        <button ng-click="mCtrl.hideForm()">Cancel</button>
+        <button ng-value="image" ng-click="mCtrl.postFav({url: image, comment: mCtrl.comment})">Ok</button>
+
       </form>
     </div>
   </div>
 
-  <div ng-repeat="image in mCtrl.results track by $index" class="search {{mCtrl.sectionOneStatus}}">
+  <div ng-repeat="image in mCtrl.results track by $index" class="search {{mCtrl.status.three}}">
     <img ng-src="{{image}}">
     <div>
       <form>

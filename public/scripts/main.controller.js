@@ -3,25 +3,43 @@ angular.module('giphyApp')
 
 function MainController(fav, gif) {
   var mCtrl = this;
-  mCtrl.favoriteResult = {};
+  mCtrl.favoriteResult = [];
+  mCtrl.favoriteCount = '';
   mCtrl.results = [];
   mCtrl.comment = '';
   mCtrl.image = [];
+  mCtrl.status = {};
 
-  //gets a random image
+  // updates favorite count
+  fav.getFav().then(function (response) {
+    mCtrl.favoriteCount = response.length;
+    mCtrl.favoriteResult = response;
+    console.log(response);
+  });
+
+  // gets a random image on page load
+  gif.randomImageRequest().then(function (url) {
+    mCtrl.image.push(angular.copy(url));
+  });
+
+  //gets a random image on click
   mCtrl.getRandomImage = function () {
-    mCtrl.sectionOneStatus = 'show';
-    mCtrl.sectionTwoStatus = 'hide';
+    mCtrl.status.one = 'show';
+    mCtrl.status.three = 'hide';
 
     gif.randomImageRequest().then(function (url) {
       mCtrl.image.push(angular.copy(url));
     });
   };
 
-  fav.getFav().then(function (response) {
-    console.log('response from GET', response);
-    mCtrl.favoriteResult = response;
-  });
+  mCtrl.showForm = function () {
+    mCtrl.status.two = 'show';
+  }
+
+  mCtrl.hideForm = function () {
+    mCtrl.status.two = 'hide';
+  }
+
 
 mCtrl.postFav = function (entry) {
   console.log('entry', entry);
