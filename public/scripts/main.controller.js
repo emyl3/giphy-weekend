@@ -42,11 +42,15 @@ function MainController(fav, gif) {
   mCtrl.hideForm = function () {
     mCtrl.statusTwo = 'hide';
     mCtrl.statusOne = 'show';
-  }
+  };
 
+  mCtrl.reload = function()
+  {
+   location.reload();
+ };
 
   mCtrl.postFav = function (entry) {
-    fav.postFav(entry).then(function (response) {
+    fav.postFav(entry).then(mCtrl.reload()).then(function (response) {
       mCtrl.comment = '';
       alert('The gif has been added to your favorites!');
     });

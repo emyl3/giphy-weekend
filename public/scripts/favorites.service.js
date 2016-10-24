@@ -12,5 +12,4 @@ function FavoriteService($http) {
   this.postFav = function (data) {
     return $http.post('/database', data);
   };
-
 }
