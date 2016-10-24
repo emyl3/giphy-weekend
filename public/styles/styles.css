@@ -46,25 +46,139 @@ table {
 }
 /* End of CSS Reset */
 
-#navBar {
-  width: 30%;
-  float: right;
+body {
+  background-color: #fff7ef;
+  font-family: 'Bungee Inline', cursive;
+	font-size: 14px;
+}
+
+h1 {
+  color: #6b824a;
+  text-align: center;
+	font-size: 3em;
+}
+
+button {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family: 'Lato', sans-serif;
+	font-size:12px;
+	padding:6px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+
+button:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+	background-color:#f6f6f6;
+}
+
+button:active {
+	position:relative;
+	top:1px;
+}
+
+#header {
+	background-color: #d6e3b5;
+	padding: 7%;
+}
+
+.navbar {
+	text-align: center;
+	font: 1.5 em;
+	padding-top: 2%;
+	color: #ffffff;
+}
+
+.navbar a:last-child {
+	margin-left: 5%;
+}
+
+#options {
+  width: 100%;
+	padding: 5% 5% 0% 0%;
+	font-family: 'Lato', sans-serif;
+	text-align: center;
+}
+
+#options > * {
+  display: inline-block;
+}
+
+#navigation {
+	margin-right: 5%;
+}
+
+#search input {
+	padding: 10px 30px;
+	font-size: 12px;
+	font-family: 'Lato', sans-serif;
 }
 
 #viewport {
-  width: 70%;
-  float: left;
+  width: 100%;
+	text-align: center;
+}
+
+img.random {
+	width: 150px;
+	display: block;
+	height: auto;
+	margin: 0 auto;
+}
+
+button.random {
+	display: block;
+	margin: 5% auto 0 auto;
+}
+
+input.form {
+	display: block;
+}
+
+.choice {
+	display: block;
+}
+
+.comment {
+	margin-top: 10%;
+}
+
+.imageButton {
+	border: 1px solid #ffc3ce;
+	margin: 5%;
+	padding: 5%;
+	background-color: #d6e3b5;
+	display: inline-block;
+	text-align: center;
+}
+.form {
+	display: block;
+	margin: 0 auto;
+}
+
+.comment {
+	padding: 5%;
+	margin: 20% 0 5% 0;
+}
+
+.enter, .exit {
+	font-size:10px;
+	padding:6px 10px;
 }
 
 .show {
-	display: show;
+	display: inline-block;
 }
 
 .hide {
-	display: hide;
-}
-
-
-.form {
-	display: hide;
+	display: none;
 }

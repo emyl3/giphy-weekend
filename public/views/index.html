@@ -22,10 +22,12 @@
   </head>
 
   <body>
-    <h1>Gif Generator</h1>
-    <div class="navbar" ng-controller="MainController as mCtrl">
-      <a href="/gifs">Gifs</a>
-      <a href="/favorites">Favorites [{{mCtrl.favoriteCount}}]</a>
+    <div id="header" ng-controller="MainController as mCtrl">
+      <h1>Gif Generator</h1>
+      <div class="navbar">
+        <a href="/gifs">Gifs</a>
+        <a href="/favorites">Favorites [{{mCtrl.favoriteCount}}]</a>
+      </div>
     </div>
 
     <div ng-view>

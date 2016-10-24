@@ -8,13 +8,14 @@ function MainController(fav, gif) {
   mCtrl.results = [];
   mCtrl.comment = '';
   mCtrl.image = [];
-  mCtrl.status = {};
+  mCtrl.statusOne = 'show';
+  mCtrl.statusTwo = 'hide';
 
   // updates favorite count
   fav.getFav().then(function (response) {
+    mCtrl.favoriteCount = '';
     mCtrl.favoriteCount = response.length;
     mCtrl.favoriteResult = response;
-    console.log(response);
   });
 
   // gets a random image on page load
@@ -24,42 +25,44 @@ function MainController(fav, gif) {
 
   //gets a random image on click
   mCtrl.getRandomImage = function () {
-    mCtrl.status.one = 'show';
-    mCtrl.status.three = 'hide';
+    mCtrl.image = [];
+    mCtrl.results = [];
 
     gif.randomImageRequest().then(function (url) {
       mCtrl.image.push(angular.copy(url));
     });
+
   };
 
   mCtrl.showForm = function () {
-    mCtrl.status.two = 'show';
+    mCtrl.statusOne = 'hide';
+    mCtrl.statusTwo = 'show';
   }
 
   mCtrl.hideForm = function () {
-    mCtrl.status.two = 'hide';
+    mCtrl.statusTwo = 'hide';
+    mCtrl.statusOne = 'show';
   }
 
 
-mCtrl.postFav = function (entry) {
-  console.log('entry', entry);
-  fav.postFav(entry).then(function (response) {
-  console.log('response from POST', response);
-  mCtrl.comment = '';
-});
-}
-
+  mCtrl.postFav = function (entry) {
+    fav.postFav(entry).then(function (response) {
+      mCtrl.comment = '';
+      alert('The gif has been added to your favorites!');
+    });
+  };
 
   mCtrl.getSearchImage = function (search) {
     var searchString = '';
 
     //clears previous results
     mCtrl.results = [];
+    mCtrl.image = [];
 
     //sets search value and clears form data
 
-    mCtrl.sectionOneStatus = 'hide';
-    mCtrl.sectionTwoStatus = 'show';
+    mCtrl.statusOne = 'hide';
+    mCtrl.statusThree = 'show';
 
     //determines if search has spaces, one word, or is blank
     if (search) {
